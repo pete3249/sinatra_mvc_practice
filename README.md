@@ -47,7 +47,14 @@ Designed to map requests to responses. Code that determines how our application 
 
 ### Assessment: Response and Request cycle using restaraunt analogy
 
-1. Customer places an order
-2. Waiter checks their brain (knowledge of the menu) to find the matching menu item (customer wants martini)
-3. Waiter takes order to the bartender and leaves them a ticket
-4. Bartender gets the Vermouth, Gin, Olive, Ice, and stirring spoon and prepares Martini
+1. Customer places an order for a martini (request).
+2. Waiter (controller) checks to find the matching menu item (route).
+3. Waiter (controller) takes order to the bartender (calling method on model object) and waits for Bartender to finish making the drink.
+4. Bartender gets the Vermouth, Gin, Olive, Ice, and stirring spoon (database) and prepares Martini and pours into `glass` (view).
+5. Waiter (controller) receives martini (model) from Bartender and delivers `glass` back to the customer (view).
+
+1. User sends request to our application
+2. The request is matched to a route in one of our controllers
+3. Controller asks model for related information
+4. Model requests information from database and bundles in object
+5. Controller renders model objects into a view template as a response sent back to browser
