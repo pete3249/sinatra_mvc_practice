@@ -30,16 +30,23 @@ class MealsController < ApplicationController
 
   # GET: /meals/5/edit
   get "/meals/:id/edit" do
+    @meal = Meal.find(params[:id])
     erb :"/meals/edit.html"
   end
 
   # PATCH: /meals/5 #for update
   patch "/meals/:id" do
-    redirect "/meals/:id"
+    #don't need to make an instance variable, because not rendering a template
+    #unless doing a validation, so template we render has access to it
+    @meal = Meal.find(params[:id])
+    @meal.update(meal_params)
+    redirect "/meals/#{@meal.id}"
   end
 
   # DELETE: /meals/5
   delete "/meals/:id" do
+    @meal = Meal.find(params[:id])
+    @meal.destroy
     redirect "/meals"
   end
 

@@ -2,3 +2,11 @@
 <p>Price: <%= @meal.price %> </p>
 <p>Spicyness: <%= @meal.spicyness %> </p>
 
+<a href="/meals/<%=@meal.id%>/edit"><input type="button" value="Edit">
+
+<form action="/meals/<%= @meal.id %>" method="post">
+    <!-- override the post request and make it a delete request -->
+    <input type="hidden" value="delete" name="_method">
+    <input type="submit" value="Delete">
+     <!-- So browser knows to submit the form and redirect (versus using button) -->
+</form>
