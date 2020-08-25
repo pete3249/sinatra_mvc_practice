@@ -53,8 +53,8 @@ Designed to map requests to responses. Code that determines how our application 
 4. Bartender gets the Vermouth, Gin, Olive, Ice, and stirring spoon (database) and prepares Martini and pours into `glass` (view).
 5. Waiter (controller) receives martini (model) from Bartender and delivers `glass` back to the customer (view).
 
-1. User sends request to our application
-2. The request is matched to a route in one of our controllers
-3. Controller asks model for related information
-4. Model requests information from database and bundles in object
-5. Controller renders model objects into a view template as a response sent back to browser
+1. User sends **request** to our application (`get '/' meals`)
+2. The request is matched to a route in `MealsController`
+3. `MealsController` asks `Meal` model for related information
+4. `Meal` model requests information from database and bundles response into collection of objects. (`Meal.all`)
+5. `MealsController` renders Meal model objects into a view template (`app/views/index.html.erb`) as a **response** sent back to browser
